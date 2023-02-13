@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>proyecto</title>
+</head>
+
+<body class="bg-color ">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+
+    <header class=" text-center py-3">
+        <h1 class="color-h1">Calculadora De Sueldo</h1>
+    </header>
+
+    <div class="container-sm px-5">
+
+        <form class="form-floating">
+
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="sueldoBasico" placeholder="$124115.96">
+                <label for="floatingInput">Ingresá el valor del sueldo basico:</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="diasTrabajados" placeholder="name@example.com">
+                <label for="floatingInput">Ingresá los días trabajados:</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="aniosTrabajados" placeholder="name@example.com">
+                <label for="floatingInput">Ingresá años trabajados:</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="cantidadHoras100" placeholder="name@example.com">
+                <label for="floatingInput">Ingresá cantidad de horas extras al 100%:</label>
+            </div>
+
+            <div class="form-check my-5 color-h1">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Tuviste vacaciones este mes?
+                </label>
+            </div>
+        </form>
+
+            <div class="d-grid gap-2">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    onclick="calcularSueldo()">Calcular Sueldo</button>
+            </div>
+    </div>
+            <!--  Ventana Modal -->
+
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Launch static backdrop modal
+            </button>
+             -->
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Resultados</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            La antigüedad es:  <b>  $<span id="antiguedad"></span></b> <br><br>
+                            Valor del Día trabajado:  <b>  $<span id="dia"></span></b> <br><br>
+                            Valor de Hora extra al 100%:  <b>  $<span id="hora100dia"></span></b> <br><br>
+                            Viático por día:  <b>  $<span id="viatico"></span></b> <br><br>
+                            Comida por día:  <b>  $<span id="comida"></span></b> <br><br>
+                            Sueldo:  <b>  $<span id="sueldoBasicoACobrar"></span></b> <br><br>
+                            especialidad:  <b>  $<span id="especialidad"></span></b> <br><br>
+                            Total a cobrar Bruto:  <b>  $<span id="totalBruto"></span></b> <br><br>
+                            Total a cobrar Neto:  <b>  $<span id="totalNeto"></span></b> <br><br>
+                            <p id = "tieneVacaciones"></p>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">De acuerdo!</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    <!-- Calculadora -->
+    <script>
+
+
+        function calcularSueldo() {
+            const sueldoBasico = parseFloat(document.querySelector("#sueldoBasico").value);
+            const diasTrabajados = parseFloat(document.querySelector("#diasTrabajados").value);
+            const aniosTrabajados = parseFloat(document.querySelector("#aniosTrabajados").value);
+            const cantidadHoras100 = parseFloat(document.querySelector("#cantidadHoras100").value);
+            const tieneVacaciones = document.getElementById("flexCheckDefault").checked;
+            const hora100 = sueldoBasico * 0.0104;
+
+            const hora50 = 0;
+
+            const dia = sueldoBasico / 24;
+            const sueldoBasicoACobrar = (sueldoBasico / 30) * diasTrabajados
+            const hora100dia = cantidadHoras100 * (hora100 * 1.12)
+            const especialidad = sueldoBasicoACobrar * 0.12
+            const promHs = 904.62
+            const antiguedad = ((sueldoBasicoACobrar + hora100dia + especialidad + promHs) * 0.01) * aniosTrabajados;
+            const viatico = dia * 0.368358;
+            const comida = dia * 0.184843;
+            const viaticoPorMes = viatico * diasTrabajados
+            const comidaPorMes = comida * diasTrabajados
+            const totalBruto = antiguedad + sueldoBasico + hora100dia + especialidad
+            const deducciones = totalBruto * 0.21
+            const totalNeto = (viatico * diasTrabajados + comida * diasTrabajados + totalBruto) - deducciones
+
+
+            /* document.write(`Antiguedad: <b> $${antiguedad.toLocaleString()} </b>` + "<br>  <br>");
+            document.write(`Valor del Día trabajado:  <b> $${dia.toLocaleString()}</b> ` + "<br>  <br>");
+            document.write(`Valor de Hora extra al 100%: <b> $${hora100.toLocaleString()}</b>` + "<br>  <br>");
+            document.write(`Valor de Hora extra al 50%: <b> ${hora50} </b>` + "<br>  <br>");
+            document.write(`Viático por día: <b> $${viatico.toLocaleString()} </b>` + "<br>  <br>");
+            document.write(`Comida por día: <b> $${comida.toLocaleString()} </b> ` + "<br>  <br>");
+            document.write(`Viatico por mes: <b> $${viatico * diasTrabajados.toLocaleString()} </b> ` + "<br>  <br>");
+            document.write(`Comida por mes: <b> $${comida * diasTrabajados.toLocaleString()}</b> ` + "<br>  <br>");
+            document.write(`Sueldo Básico: <b> $${sueldoBasico.toLocaleString()} </b>` + "<br>  <br>");
+            document.write(`especialidad: <b> $${especialidad.toLocaleString()} </b>` + "<br>  <br>")
+            document.write(`Total a cobrar Neto: <b> $${(antiguedad + sueldoBasico + hora100dia + viatico * diasTrabajados + comida * diasTrabajados + especialidad).toLocaleString()} </b>`);
+             */
+             if (tieneVacaciones) {
+                document.getElementById("tieneVacaciones").innerHTML = "...Y felicidades por tus vacaciones!";
+             }
+
+            if (sueldoBasico === "" || sueldoBasico === isNaN(sueldoBasico)) {
+                alert("algunos campos incompletos")
+                location.reload();
+            } else {
+                document.getElementById("antiguedad").innerHTML = antiguedad.toFixed(2);
+
+                document.getElementById("dia").innerHTML = dia.toFixed(2);
+
+                document.getElementById("sueldoBasicoACobrar").innerHTML = sueldoBasicoACobrar.toFixed(2);
+
+                document.getElementById("hora100dia").innerHTML = hora100dia.toFixed(2);
+
+                document.getElementById("viatico").innerHTML = viatico.toFixed(2);
+
+                document.getElementById("comida").innerHTML = comida.toFixed(2);
+
+                document.getElementById("especialidad").innerHTML = especialidad.toFixed(2);
+
+                document.getElementById("totalBruto").innerHTML = totalBruto.toFixed(2);
+
+                document.getElementById("totalNeto").innerHTML = totalNeto.toFixed(2);
+
+                $("#staticBackdrop").modal("show");
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
