@@ -1,11 +1,20 @@
-
+function tieneVacas(){
+const tieneVacaciones = document.getElementById("flexCheckDefault").checked;
+if (tieneVacaciones) {
+    console.log("Felices vacaciones!")
+   document.getElementById("tieneVacaciones").innerHTML = "<div class='form-floating mt-2'><input type='number' class='form-control' id='diasTrabajados' placeholder='30'><label for='floatingInput'>Ingresá los días de vacaciones:</label></div>"
+    
+ }else{
+    document.getElementById("tieneVacaciones").innerHTML = ""
+ }
+}
 
 function calcularSueldo() {
     let sueldoBasico = 0/* = parseFloat(document.querySelector("#sueldoBasico").value); */
     const diasTrabajados = parseFloat(document.querySelector("#diasTrabajados").value);
     const aniosTrabajados = parseFloat(document.querySelector("#aniosTrabajados").value);
     const cantidadHoras100 = parseFloat(document.querySelector("#cantidadHoras100").value);
-    const tieneVacaciones = document.getElementById("flexCheckDefault").checked;
+   /*  const tieneVacaciones = document.getElementById("flexCheckDefault").checked; */
     const auxiliar1 = document.getElementById("inlineRadio1").checked;
     const operador = document.getElementById("inlineRadio2").checked;
     const distribuidor = document.getElementById("inlineRadio3").checked;
@@ -24,6 +33,8 @@ function calcularSueldo() {
         alert("Debes seleccionar tu categoría!")
         return;
     }
+
+
 
     console.log(sueldoBasico)
 
@@ -58,9 +69,7 @@ function calcularSueldo() {
      */
 
 
-     if (tieneVacaciones) {
-        document.getElementById("tieneVacaciones").innerHTML = "...Y felicidades por tus vacaciones!";
-     }
+     
 
 
         document.getElementById("sueldoBasico").innerHTML = sueldoBasico.toFixed(2); 
