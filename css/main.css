@@ -1,9 +1,19 @@
 .bg-color{
     background-color: #4d256e;
-   
-}
-
-.color-h1{
     color: white;
 }
 
+.form-floating{
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .grid{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        
+    }
+}
+.modal{
+    color: black;
+}

@@ -1,15 +1,34 @@
 
 
 function calcularSueldo() {
-    const sueldoBasico = parseFloat(document.querySelector("#sueldoBasico").value);
+    let sueldoBasico = 0/* = parseFloat(document.querySelector("#sueldoBasico").value); */
     const diasTrabajados = parseFloat(document.querySelector("#diasTrabajados").value);
     const aniosTrabajados = parseFloat(document.querySelector("#aniosTrabajados").value);
     const cantidadHoras100 = parseFloat(document.querySelector("#cantidadHoras100").value);
     const tieneVacaciones = document.getElementById("flexCheckDefault").checked;
+    const auxiliar1 = document.getElementById("inlineRadio1").checked;
+    const operador = document.getElementById("inlineRadio2").checked;
+    const distribuidor = document.getElementById("inlineRadio3").checked;
+    const adm1 = document.getElementById("inlineRadio4").checked;
+
+
+    if (auxiliar1) {
+        sueldoBasico = 124115.96;
+    } else if (operador){
+        sueldoBasico = 132466.90;
+    } else if(distribuidor){
+        sueldoBasico = 120570.50;
+    } else if(adm1){
+        sueldoBasico = 123888.35;
+    } else {
+        alert("Debes seleccionar tu categoría!")
+        return;
+    }
+
+    console.log(sueldoBasico)
+
     const hora100 = sueldoBasico * 0.0104;
-
     const hora50 = 0;
-
     const dia = sueldoBasico / 24;
     const sueldoBasicoACobrar = (sueldoBasico / 30) * diasTrabajados
     const hora100dia = cantidadHoras100 * (hora100 * 1.12)
@@ -37,14 +56,15 @@ function calcularSueldo() {
     document.write(`especialidad: <b> $${especialidad.toLocaleString()} </b>` + "<br>  <br>")
     document.write(`Total a cobrar Neto: <b> $${(antiguedad + sueldoBasico + hora100dia + viatico * diasTrabajados + comida * diasTrabajados + especialidad).toLocaleString()} </b>`);
      */
+
+
      if (tieneVacaciones) {
         document.getElementById("tieneVacaciones").innerHTML = "...Y felicidades por tus vacaciones!";
      }
 
-    if (sueldoBasico === "" || sueldoBasico === isNaN(sueldoBasico)) {
-        alert("algunos campos incompletos")
-        location.reload();
-    } else {
+
+        document.getElementById("sueldoBasico").innerHTML = sueldoBasico.toFixed(2); 
+
         document.getElementById("antiguedad").innerHTML = antiguedad.toFixed(2);
 
         document.getElementById("dia").innerHTML = dia.toFixed(2);
@@ -65,5 +85,3 @@ function calcularSueldo() {
 
         $("#staticBackdrop").modal("show");
     }
-
-}

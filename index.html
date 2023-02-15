@@ -15,47 +15,79 @@
     <script src="js/js.js"></script>
 
 
-    <header class=" text-center py-3">
-        <h1 class="color-h1">Calculadora De Sueldo</h1>
+    <header class=" text-center pt-3">
+        <h1>Calculadora De Sueldo</h1>
     </header>
 
-    <div class="container-sm px-5">
+    <div class="container-sm py-3 px-5">
 
-        <form class="form-floating">
+        <form class="form-floating ">
 
-            <div class="form-floating mb-3">
+            <!-- <div class="form-floating mb-3 ">
                 <input type="number" class="form-control" id="sueldoBasico" placeholder="$124115.96">
                 <label for="floatingInput">Ingresá el valor del sueldo basico: ($124115.96)</label>
-            </div>
+            </div> -->
 
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3 ">
                 <input type="number" class="form-control" id="diasTrabajados" placeholder="30">
                 <label for="floatingInput">Ingresá los días trabajados:</label>
             </div>
 
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3 ">
                 <input type="number" class="form-control" id="aniosTrabajados" placeholder="name@example.com">
                 <label for="floatingInput">Ingresá años trabajados:</label>
             </div>
 
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3 ">
                 <input type="number" class="form-control" id="cantidadHoras100" placeholder="name@example.com">
                 <label for="floatingInput">Ingresá cantidad de horas extras al 100%:</label>
             </div>
-
-            <div class="form-check my-5 color-h1">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Tuviste vacaciones este mes?
-                </label>
-            </div>
         </form>
+        <br>
+
+        <h3>Ingresá tu categoría</h3><br>
+      
+        <div class="grid">
+
+        
+
+                <div class="form-check form-check-inline ">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Auxiliar de 1ra</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio2">Operador de Serv</label>
+                </div>
+           
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio3">Distribuidor</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio4">Administrativo de 1ra</label>
+                </div>
+            </div>
+        <div class="form-check my-5 color-h1">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Tuviste vacaciones este mes?
+            </label>
+        </div>
 
         <div class="d-grid gap-2">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                 onclick="calcularSueldo()">Calcular Sueldo</button>
         </div>
     </div>
+   
+
     <!--  Ventana Modal -->
 
     <!-- Button trigger modal -->
@@ -74,7 +106,9 @@
                 </div>
 
                 <div class="modal-body">
-                    La antigüedad es: <b> $<span id="antiguedad"></span></b> <br><br>
+                    
+                    Sueldo Básico: <b> $<span id="sueldoBasico"></span></b> <br><br>
+                    Antigüedad: <b> $<span id="antiguedad"></span></b> <br><br>
                     Valor del Día trabajado: <b> $<span id="dia"></span></b> <br><br>
                     Valor de Hora extra al 100%: <b> $<span id="hora100dia"></span></b> <br><br>
                     Viático por día: <b> $<span id="viatico"></span></b> <br><br>
