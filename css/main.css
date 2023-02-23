@@ -2,7 +2,7 @@
 
     background: linear-gradient(#3e0359ea, #0e064de6);
    
-    color: white;
+    color: rgba(255, 255, 255, 0.801);
 }
 
 .bg-image {
@@ -38,5 +38,12 @@
 }
 
 .modal {
-    color: #3e0359;
+    color: #5d1b7b;
+}
+.footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.502);
+
 }
