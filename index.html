@@ -10,16 +10,55 @@
     <title>proyecto</title>
 </head>
 
-<body class="bg-color ">
+<body class="bg-image ">
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/js.js"></script>
 
+<!-- Barra de Navegación -->
+<div class="bg-color">
 
-    <header class=" text-center pt-3">
-        <h1>Calculadora De Sueldo</h1>
-    </header>
 
-    <div class="container-sm py-3 px-5">
+<nav class="navbar navbar-dark pt-4">
+    <div class="container-fluid">
+        <img class="logo" src="img/oca.png" alt="Logo Oca"> 
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Extras</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Última Escala Salarial
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="https://www.camioneros-ba.org.ar/images/joomlart/escalas/escala_febrero2023_1.jpg"target="_blank">Febrero 2023 hoja 1</a></li>
+                  <li><a class="dropdown-item" href="https://www.camioneros-ba.org.ar/images/joomlart/escalas/escala_febrero2023_2.jpg"target="_blank">Febrero 2023 hoja 2</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="https://www.camioneros-ba.org.ar/images/joomlart/escalas/Cart_amplia_feb_210.doc"target="_blank">Cartilla Ampliatoria 02/2023</a></li>
+                </ul>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="https://app.reciboselectronicos.com/" target="_blank">Recibos de Sueldo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.camioneros-ba.org.ar/index.php/gremiales/salarios/escalas-salariales" target="_blank">Escalas Salariales</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+    <hr>
+<div class="contenedor-centrar">
+    <div class="py-3 px-5 form-contenedor">
 
         <form class="form-floating ">
 
@@ -85,53 +124,72 @@
         </div>
 
         <div class="d-grid gap-2 mt-5">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                onclick="calcularSueldo()">Calcular Sueldo</button>
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" onclick="calcularSueldo()">Calcular Sueldo</button>
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                >Calcular Sueldo</button> -->
         </div>
     </div>
-   
+</div>
 
     <!--  Ventana Modal -->
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Launch static backdrop modal
-            </button>
-             -->
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Resultados</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
 
-                <div class="modal-body">
-                    
-                    Sueldo Básico: <b> $<span id="sueldoBasico"></span></b> <br><br>
-                    Antigüedad: <b> $<span id="antiguedad"></span></b> <br><br>
-                    Valor del Día trabajado: <b> $<span id="dia"></span></b> <br><br>
-                    Valor de Hora extra al 100%: <b> $<span id="hora100dia"></span></b> <br><br>
-                    Viático por día: <b> $<span id="viatico"></span></b> <br><br>
-                    Comida por día: <b> $<span id="comida"></span></b> <br><br>
-                    Sueldo: <b> $<span id="sueldoBasicoACobrar"></span></b> <br><br>
-                    especialidad: <b> $<span id="especialidad"></span></b> <br><br>
-                    Total a cobrar Bruto: <b> $<span id="totalBruto"></span></b> <br><br>
-                    Total a cobrar Neto: <b> $<span id="totalNeto"></span></b> <br><br>
-                    <p id="tieneVacaciones"></p>
-                </div>
-
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">De acuerdo!</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Resultados</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+                Sueldo Básico: <b> $<span id="sueldoBasico"></span></b> <br><br>
+                Antigüedad: <b> $<span id="antiguedad"></span></b> <br><br>
+                Valor del Día trabajado: <b> $<span id="dia"></span></b> <br><br>
+                Valor de Hora extra al 100%: <b> $<span id="hora100dia"></span></b> <br><br>
+                Viático por día: <b> $<span id="viatico"></span></b> <br><br>
+                Comida por día: <b> $<span id="comida"></span></b> <br><br>
+                Sueldo: <b> $<span id="sueldoBasicoACobrar"></span></b> <br><br>
+                especialidad: <b> $<span id="especialidad"></span></b> <br><br>
+               <h5>Total a cobrar Bruto: <b style="color:#1fa65e"> $<span id="totalBruto"></span></b> <br><br></h5>
+                
+                
+              
+               
+                <p id="tieneVacaciones"></p>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"onclick="calcularSueldo()">Ver Sueldo Neto</button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Ver total Neto</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                Total Viático: <b> $<span id="viaticoPorMes"></span></b> <br><br>
+                Total comida: <b> $<span id="comidaPorMes"></span></b> <br><br>
+               <div id="vaca"></div>
+                Deducciones: <b style="color:#bc253e"> $-<span id="deducciones"></span></b> <br><br>
+               <h5> Total a cobrar Neto: <b style="color:#1fa65e"> $<span id="totalNeto"></span></b></h5> <br><br>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Volver a Sueldo Bruto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+<footer>
 
+</footer>
+</div>      
 </body>
 
 </html>

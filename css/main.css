@@ -1,19 +1,42 @@
-.bg-color{
-    background-color: #48256e;
+.bg-color {
+
+    background: linear-gradient(#3e0359ea, #0e064de6);
+   
     color: white;
 }
 
-.form-floating{
+.bg-image {
+    background-image: url(../img/pag10-ocajpg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+.contenedor-centrar {
+    display: flex;
+    justify-content: center;
+}
+
+.form-contenedor {
+
+    width: 768px;
+
+}
+
+.form-floating {
     color: black;
 }
 
-@media (max-width: 768px) {
-    .grid{
-        display: grid;
-        grid-template-columns: 50% 50%;
-        
-    }
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
 }
-.modal{
-    color: black;
+
+.modal {
+    color: #3e0359;
 }
