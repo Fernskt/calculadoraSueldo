@@ -7,7 +7,6 @@ function tieneVacas() {
         document.getElementById("tieneVacaciones").innerHTML = ""
     }
 }
-
 function otroSueldo(){
     
     const adm1 = document.getElementById("inlineRadio4").checked;
@@ -15,10 +14,12 @@ function otroSueldo(){
         document.getElementById("sueldoBase").innerHTML = "<div class='form-floating mt-2'><input type='number' class='form-control' id='sueldoBasi' placeholder='30'><label for='floatingInput'>Ingresá sueldo básico:</label></div>"       
 } 
 }
-
 function noCheckOtro(){
     document.getElementById("sueldoBase").innerHTML = ""
 }
+
+
+
 
 function calcularSueldo() {
     let sueldoBasico = 0/* = parseFloat(document.querySelector("#sueldoBasico").value); */
@@ -42,7 +43,6 @@ function calcularSueldo() {
         sueldoBasico = parseFloat(document.querySelector("#sueldoBasi").value);
     } else {
         alert("Debes seleccionar tu categoría!")
-        
         return;
     }
 
@@ -60,8 +60,8 @@ function calcularSueldo() {
     const antiguedad = ((sueldoBasicoACobrar + hora100dia + especialidad + promHs) * 0.01) * aniosTrabajados;
     const viatico = dia * 0.368358;
     const comida = dia * 0.184843;
-    const viaticoPorMes = viatico * diasTrabajados
-    const comidaPorMes = comida * diasTrabajados
+    const viaticoPorMes = viatico * (diasTrabajados - 6)
+    const comidaPorMes = comida * (diasTrabajados - 6)
     const totalBruto = antiguedad + sueldoBasico + hora100dia + especialidad
     const deducciones = totalBruto * 0.215
 
@@ -95,7 +95,7 @@ function calcularSueldo() {
     } else {
         console.log("No tiene vacaciones :(")
         document.getElementById("vaca").innerHTML = ""
-        const totalNeto = (viatico * diasTrabajados + comida * diasTrabajados + totalBruto) - deducciones
+        const totalNeto = (viaticoPorMes + comidaPorMes + totalBruto) - deducciones
         document.getElementById("totalNeto").innerHTML = totalNeto.toFixed(2);
     }
 }
