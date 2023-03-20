@@ -8,8 +8,20 @@ function tieneVacas() {
     }
 }
 
+function otroSueldo(){
+    
+    const adm1 = document.getElementById("inlineRadio4").checked;
+    if (adm1) {
+        document.getElementById("sueldoBase").innerHTML = "<div class='form-floating mt-2'><input type='number' class='form-control' id='sueldoBasi' placeholder='30'><label for='floatingInput'>Ingresá sueldo básico:</label></div>"       
+} 
+}
+
+function noCheckOtro(){
+    document.getElementById("sueldoBase").innerHTML = ""
+}
+
 function calcularSueldo() {
-    let sueldoBasico = 0 /* = parseFloat(document.querySelector("#sueldoBasico").value); */
+    let sueldoBasico = 0/* = parseFloat(document.querySelector("#sueldoBasico").value); */
     const diasTrabajados = parseFloat(document.querySelector("#diasTrabajados").value);
     const aniosTrabajados = parseFloat(document.querySelector("#aniosTrabajados").value);
     const cantidadHoras100 = parseFloat(document.querySelector("#cantidadHoras100").value);
@@ -19,19 +31,22 @@ function calcularSueldo() {
     const adm1 = document.getElementById("inlineRadio4").checked;
 
 
+
     if (auxiliar1) {
         sueldoBasico = 124115.96;
     } else if (operador) {
         sueldoBasico = 132466.90;
     } else if (distribuidor) {
         sueldoBasico = 120570.50;
-    } else if (adm1) {
-        sueldoBasico = 123888.35;
+    } else if (adm1){
+        sueldoBasico = parseFloat(document.querySelector("#sueldoBasi").value);
     } else {
         alert("Debes seleccionar tu categoría!")
+        
         return;
     }
 
+    
 
     /*  Vacaciones = 2908.09 */
 
@@ -48,7 +63,7 @@ function calcularSueldo() {
     const viaticoPorMes = viatico * diasTrabajados
     const comidaPorMes = comida * diasTrabajados
     const totalBruto = antiguedad + sueldoBasico + hora100dia + especialidad
-    const deducciones = totalBruto * 0.21
+    const deducciones = totalBruto * 0.215
 
 
     document.getElementById("sueldoBasico").innerHTML = sueldoBasico.toFixed(2);
@@ -83,7 +98,5 @@ function calcularSueldo() {
         const totalNeto = (viatico * diasTrabajados + comida * diasTrabajados + totalBruto) - deducciones
         document.getElementById("totalNeto").innerHTML = totalNeto.toFixed(2);
     }
-
-
-
 }
+
