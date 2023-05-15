@@ -87,7 +87,7 @@ function calcularSueldo() {
         const diasVacaciones = parseFloat(document.querySelector("#tieneVacas").value);
         let vacaciones = diasVacaciones * 2908.09;
         document.getElementById("vacaciones").innerHTML = vacaciones.toFixed(2);
-        const totalNeto = (viatico * diasTrabajados + comida * diasTrabajados + totalBruto + vacaciones) - deducciones
+        const totalNeto = (viaticoPorMes + comidaPorMes + totalBruto + vacaciones) - deducciones
         document.getElementById("totalNeto").innerHTML = totalNeto.toFixed(2);
 
         /*  */

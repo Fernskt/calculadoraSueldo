@@ -1,0 +1,38 @@
+crea un programa que tenga por salida el sueldo en mano.
+
+teniendo en cuenta lo siguiente:
+
+ingrese sueldo basico:
+
+ingrese años de antiguedad:
+
+ingrese dias cantidad de dias trabajados:
+
+ingrese cantidad de horas extra trabajadas al 100%:
+
+ingrese cantidad de horas extra trabajadas al 100%:
+
+
+
+comida = sueldo basico * 1.53%
+
+antiguedad = sueldo basico / años de antiguedad
+
+xDia = sueldo basico x dias trabajados
+
+sueldo completo
+
+
+
+Título: Heladera Consul usada en perfectas condiciones
+
+Descripción:
+Vendo mi heladera Consul usada en perfecto estado, sin detalles. Ha sido cuidada con mucho cariño y ha funcionado de maravilla. La vendo porque me mudo a otro lugar y ya no la necesito.
+
+La heladera tiene un tamaño ideal para una familia pequeña o una pareja. Tiene un congelador con espacio suficiente para guardar tus alimentos y cuenta con una amplia capacidad de almacenamiento en la parte inferior. Además, cuenta con un sistema de enfriamiento muy eficiente y es muy fácil de limpiar.
+
+La heladera ha sido revisada por un técnico y se encuentra en excelentes condiciones. Tiene algunas marcas de uso en el exterior, pero no afectan su funcionamiento. Incluyo todos los accesorios originales, como las rejillas y cajones.
+
+Precio: $30,000
+
+Si estás interesado en comprar la heladera, no dudes en contactarme para coordinar la entrega. ¡Gracias por tu interés!
